@@ -1,43 +1,7 @@
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
 
-const schema = buildSchema(`
-    enum Species {
-        Dog
-        Cat
-        Frog
-    }
-
-    type Pet {
-        name: String!
-        species: Species!
-    }
-
-    type Time {
-        hour: String!
-        minute: String!
-        second: String!
-    }
-
-    type Dice {
-        total: Int!
-        sides: Int!
-        rolls: [Int]
-    }
-
-    type Query {
-        allPets: [Pet!]
-        getPet(index: Int!): Pet
-        firstPet: Pet
-        getTime: Time
-        getRandom(range: Int!): Int
-        getRoll(sides: Int!, rolls: Int!): Dice
-        getCount: Int!
-        petsInRange(start: Int!, count: Int!): [Pet!]!
-        getPetBySpecies(species: String!): [Pet!]!
-    }
-`)
+const schema = require('./schema');
 
 const petList = [
     { name: 'Fluffy', species: 'Dog' },
