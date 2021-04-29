@@ -10,6 +10,7 @@ const enums = `
 
 const types = `
     type Pet {
+        id: Int!
         name: String!
         species: Species!
     }
@@ -42,6 +43,7 @@ const queries = `
 
 const mutations = `
     addPet(name: String!, species: String!): Pet!
+    updatePet(id: Int!, name: String, species: String): Pet
 `
 
 const schema = `

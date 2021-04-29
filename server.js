@@ -4,9 +4,9 @@ const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema');
 
 const petList = [
-    { name: 'Fluffy', species: 'Dog' },
-    { name: 'Sassy', species: 'Cat' },
-    { name: 'Goldberg', species: 'Frog' }
+    { id: 1, name: 'Fluffy', species: 'Dog' },
+    { id: 2, name: 'Sassy', species: 'Cat' },
+    { id: 3, name: 'Goldberg', species: 'Frog' }
 ];
 
 // Define a resolver
@@ -25,6 +25,17 @@ const root = {
         petList.push(pet);
 
         return pet
+    },
+    updatePet: ({ id, name, species }) => {
+        const pet = petList[id];
+        if (pet === undefined) {
+            return null
+        }
+
+        pet.name = name || pet.name;
+        pet.species = species || pet.species;
+
+        return pet;
     },
     getTime: () => {
         return {
