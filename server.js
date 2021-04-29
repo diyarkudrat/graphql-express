@@ -37,6 +37,17 @@ const root = {
 
         return pet;
     },
+    deletePet: ({ id }) => {
+        const pet = petList[id];
+
+        if (pet === undefined) {
+            return null;
+        }
+
+        petList.splice(id, 1);
+
+        return pet;
+    },
     getTime: () => {
         return {
             hour: new Date().getHours().toString() - 12,

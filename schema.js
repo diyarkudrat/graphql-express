@@ -44,6 +44,7 @@ const queries = `
 const mutations = `
     addPet(name: String!, species: String!): Pet!
     updatePet(id: Int!, name: String, species: String): Pet
+    deletePet(id: Int!): Pet
 `
 
 const schema = `
