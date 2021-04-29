@@ -20,6 +20,12 @@ const root = {
     firstPet: () => {
         return petList[0];
     },
+    addPet: ({ name, species }) => {
+        const pet = { name, species };
+        petList.push(pet);
+
+        return pet
+    },
     getTime: () => {
         return {
             hour: new Date().getHours().toString() - 12,

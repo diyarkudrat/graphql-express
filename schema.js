@@ -40,10 +40,15 @@ const queries = `
     }
 `
 
+const mutations = `
+    addPet(name: String!, species: String!): Pet!
+`
+
 const schema = `
     ${enums}
     ${types}
     ${queries}
+    ${mutations}
 `
 
 module.exports = buildSchema(schema);
